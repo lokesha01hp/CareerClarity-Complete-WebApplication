@@ -1,0 +1,174 @@
+/* General body and container styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eafbfc;
+}
+
+.container {
+  width: 45%;
+  margin: 50px auto;
+  background: #fbfdfd;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Flashcard form styles */
+.flashcards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+label {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Button styles */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto 0;
+  display: block;
+  width: 50%;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+/* Styling for the result page */
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e2f5f7;
+}
+
+.result-card {
+  background-color: #eff8f8;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 80%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-60%);
+}
+
+/* Predicted career box */
+.result-card .career-title {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Result text style */
+.result-card .career-result {
+  font-size: 1.8em;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+/* Hover effects for the result card */
+.result-card .career-result:hover {
+  background-color: #e6f7ff;
+  transform: scale(1.05);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Link back to homepage or another action */
+.result-card a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1em;
+  color: #007bff;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.result-card a:hover {
+  background-color: #007bff;
+  color: white;
+}

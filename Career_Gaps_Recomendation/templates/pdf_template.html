@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PDF Export</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        color: #333;
+      }
+
+      h1 {
+        color: #0056b3;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #333;
+        margin-top: 20px;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 5px;
+      }
+
+      .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      .skills-table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        background: #f4f4f9;
+        border-radius: 5px;
+        width: 25%;
+      }
+
+      .skills-table td:nth-child(even) {
+        background: #e8e8f9;
+      }
+
+      .skills-table td:nth-child(odd) {
+        background: #f9f9fc;
+      }
+
+      .none-text {
+        font-style: italic;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Skills Report for {{ job_role }}</h1>
+
+    <!-- User Skills Section -->
+    <h2>Your Skills</h2>
+    {% if user_skills %}
+    <table class="skills-table">
+      <tr>
+        {% for skill in user_skills %}
+        <td>{{ skill }}</td>
+        {% if loop.index % 4 == 0 and not loop.last %}
+      </tr>
+      <tr>
+        {% endif %} {% endfor %} {% if user_skills|length % 4 != 0 %}
+        <!-- Add empty cells to complete the last row -->
+        {% for i in range(4 - (user_skills|length % 4)) %}
+        <td></td>
+        {% endfor %} {% endif %}
+      </tr>
+    </table>
+    {% else %}
+    <p class="none-text">None</p>
+    {% endif %}
+
+    <!-- Required Skills Section -->
+    <h2>Required Skills</h2>
+    {% if required_skills %}
+    <table class="skills-table">
+      <tr>
+        {% for skill in required_skills %}
+        <td>{{ skill }}</td>
+        {% if loop.index % 4 == 0 and not loop.last %}
+      </tr>
+      <tr>
+        {% endif %} {% endfor %} {% if required_skills|length % 4 != 0 %}
+        <!-- Add empty cells to complete the last row -->
+        {% for i in range(4 - (required_skills|length % 4)) %}
+        <td></td>
+        {% endfor %} {% endif %}
+      </tr>
+    </table>
+    {% else %}
+    <p class="none-text">None</p>
+    {% endif %}
+
+    <!-- Missing Skills Section -->
+    <h2>Missing Skills</h2>
+    {% if missing_skills %}
+    <table class="skills-table">
+      <tr>
+        {% for skill in missing_skills %}
+        <td>{{ skill }}</td>
+        {% if loop.index % 4 == 0 and not loop.last %}
+      </tr>
+      <tr>
+        {% endif %} {% endfor %} {% if missing_skills|length % 4 != 0 %}
+        <!-- Add empty cells to complete the last row -->
+        {% for i in range(4 - (missing_skills|length % 4)) %}
+        <td></td>
+        {% endfor %} {% endif %}
+      </tr>
+    </table>
+    {% else %}
+    <p class="none-text">None</p>
+    {% endif %}
+  </body>
+</html>

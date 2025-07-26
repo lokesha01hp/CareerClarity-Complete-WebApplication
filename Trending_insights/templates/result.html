@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Insights Results</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='result_styles.css') }}"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        color: #ffffff;
+        background: url('{{ url_for("static", filename="images/result_back.jpg") }}')
+          no-repeat center center/cover;
+        height: 100%;
+      }
+
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #00d1b2;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #00d1b2;
+      }
+
+      /* Background Section */
+      .detect-background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 70px; /* Ensure form stays below the fixed header */
+      }
+
+      .detect-content {
+        padding: 30px;
+        border-radius: 15px;
+        width: 300px; /* Reduced width to half */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        backdrop-filter: none; /* Removed background effect */
+        background: none; /* No background box */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centered form content */
+      }
+
+      .detect-content h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #00d1b2;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      .detect-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #ffffff;
+        text-align: left; /* Align label text to the left */
+      }
+
+      .detect-form input {
+        width: 100%; /* Stretch input to match container width */
+        max-width: 250px; /* Limit input size */
+        padding: 10px;
+        margin-bottom: 15px; /* Space between fields */
+        border-radius: 8px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-size: 14px;
+        display: block;
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+      }
+
+      .btn {
+        background-color: #00d1b2;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    {% if linkedin_url %}
+    <div class="insight-box">
+      <strong>LinkedIn URL:</strong>
+      <a href="{{ linkedin_url }}" target="_blank" class="linkedin-url"
+        >{{ linkedin_url }}</a
+      >
+    </div>
+    {% endif %}
+
+    <div class="container">
+      <header>
+        <h1>Career Insights Results</h1>
+        <p>
+          Here are the trending insights for the role you are interested in!
+        </p>
+      </header>
+
+      <div class="result-card">
+        <h2>Hello, {{ name }}!</h2>
+        <h3>Trending Insights for the Role: {{ role }}</h3>
+
+        {% if job_info %}
+        <div class="insights-grid">
+          {% for key, value in job_info.items() %}
+          <div class="insight-box">
+            <strong>{{ key }}:</strong>
+            <p>{{ value }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %} {% if linkedin_url %}
+        <div class="insight-box">
+          <strong>LinkedIn URL:</strong>
+          <a href="{{ linkedin_url }}" target="_blank">{{ linkedin_url }}</a>
+        </div>
+        {% endif %} {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <a href="/" class="back-btn">Back to Form</a>
+      </div>
+    </div>
+  </body>
+</html>

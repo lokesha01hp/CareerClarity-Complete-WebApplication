@@ -1,0 +1,152 @@
+/* Basic reset for padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and container */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to right,
+    #9a7bee,
+    #98f7ea
+  ); /* Dual color gradient background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  flex-direction: column; /* Ensures content flows vertically */
+}
+
+/* Container styling */
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+  z-index: 1;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(
+    to right,
+    #f39c12,
+    #e74c3c
+  ); /* Colorful background for header */
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 3rem; /* Larger font size for the heading */
+  color: #fff;
+  font-family: "Roboto", sans-serif; /* Attractive, modern font */
+  letter-spacing: 2px; /* Adds space between letters */
+  font-weight: bold;
+  text-transform: uppercase; /* Makes the heading all caps */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a soft shadow for more impact */
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Form styles */
+.input-form label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 1rem;
+}
+
+.input-form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-form input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Dropdown styles */
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Submit button styles */
+.input-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-form input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Back to Main Page button styles */
+button {
+  padding: 12px 20px;
+  background-color: #2980b9; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease;
+  margin-top: 20px;
+  display: inline-block;
+  align-self: center; /* Center the button */
+}
+
+button:hover {
+  background-color: #27ae60; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lifting effect */
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  background-color: #1e8449; /* Even darker green when clicked */
+}

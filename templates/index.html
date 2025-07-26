@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Guidance App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      body {
+        margin: 0;
+        background: url('{{ url_for("static", filename="images/fullbackground.jpg") }}')
+          no-repeat center center/cover;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Career Guidance App</h1>
+      <p class="description">
+        Explore your career options and take the next step in your journey.
+        Choose an option below:
+      </p>
+      <div class="buttons-container">
+        <button
+          class="btn"
+          onclick="window.location.href='http://localhost:8080'"
+        >
+          Career Guidance after 10th
+        </button>
+        <button
+          class="btn"
+          onclick="window.location.href='http://localhost:8081'"
+        >
+          Skills Gaps Assess
+        </button>
+        <button
+          class="btn"
+          onclick="window.location.href='http://localhost:8082'"
+        >
+          Personality Based Career Recommender
+        </button>
+        <button
+          class="btn"
+          onclick="window.location.href='http://localhost:8083'"
+        >
+          Trending Insights
+        </button>
+      </div>
+      <script>
+        const helpUrl = "{{ url_for('help') }}";
+      </script>
+      <button class="help-btn" onclick="window.location.href=helpUrl">
+        Help
+      </button>
+    </div>
+  
+
+   
+   
+   
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2024/11/02/07/20241102070940-F7BOW8VM.js"></script>
+    
+    
+    
+  </body>
+</html>

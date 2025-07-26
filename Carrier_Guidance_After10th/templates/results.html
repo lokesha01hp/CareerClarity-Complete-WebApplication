@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Recommendations</title>
+    <style>
+      /* Global styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e2f0f7;
+        color: #444;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0;
+      }
+
+      /* Header styling */
+      header {
+        background-color: #711fc9; /* Purple */
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      /* Main content container */
+      .container {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        padding: 2.5rem;
+        max-width: 900px;
+        width: 100%;
+        margin-top: 2rem;
+        text-align: left;
+      }
+      h2 {
+        color: #6a11cb;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Recommendation list */
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        background-color: #f9f9f9;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+      }
+      ul li strong {
+        color: #6a11cb;
+        font-weight: bold;
+      }
+
+      /* Form styling */
+      form {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+      label {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 0.8rem;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      input[type="text"]:focus {
+        border-color: #6a11cb;
+      }
+      input[type="submit"] {
+        background-color: #6a11cb;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 1rem;
+      }
+      input[type="submit"]:hover {
+        background-color: #2575fc;
+      }
+
+      /* Button container */
+      .button-container {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .button-container a button {
+        background-color: #888;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .button-container a button:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Career Recommendations</h1>
+    </header>
+    <div class="container">
+      {% if recommendations %}
+      <h2>Your Personalized Career Recommendations:</h2>
+      <ul>
+        <li>
+          <strong>Recommended Path:</strong> {{
+          recommendations['Recommended_Path'] }}
+        </li>
+        <li>
+          <strong>Suitable Careers:</strong> {{
+          recommendations['Suitable_Careers'] }}
+        </li>
+        <li>
+          <strong>Suggested Courses:</strong> {{
+          recommendations['Suggested_Courses'] }}
+        </li>
+        <li>
+          <strong>Skills To Develop:</strong> {{
+          recommendations['Skills_To_Develop'] }}
+        </li>
+        <li>
+          <strong>Challenges To Overcome:</strong> {{
+          recommendations['Challenges_To_Overcome'] }}
+        </li>
+        <li>
+          <strong>Education Level (PUC/Diploma):</strong> {{
+          recommendations['PUC_or_Diploma'] }}
+        </li>
+      </ul>
+      <!-- Google Maps Link for nearby colleges -->
+      {% if recommendations['google_maps_link'] %}
+      <div>
+        <p>
+          <strong>Find Colleges Nearby:</strong>
+          <a href="{{ recommendations['google_maps_link'] }}" target="_blank">
+            View on Google Maps
+          </a>
+        </p>
+      </div>
+      {% endif %} {% else %}
+      <p>
+        No recommendations available. Please provide your input to get
+        personalized recommendations.
+      </p>
+      {% endif %}
+
+      <div class="button-container">
+        <a href="/"><button>Back to Home</button></a>
+      </div>
+
+      <form action="{{ url_for('download_pdf') }}" method="POST">
+        <label for="user_name">Your Name:</label>
+        <input type="text" id="user_name" name="user_name" required />
+        <input type="submit" value="Download PDF" />
+      </form>
+    </div>
+  </body>
+</html>

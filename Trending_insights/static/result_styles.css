@@ -1,0 +1,210 @@
+/* Basic reset for padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and container */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to right,
+    #f3f1f1,
+    #8d8b8d
+  ); /* Soft blue to purple gradient */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px; /* Add padding around the body */
+  overflow-y: auto; /* Allow scrolling on the body if needed */
+}
+
+/* Main container styling */
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 20px; /* Padding to make form fields feel connected */
+  width: 100%;
+  max-width: 900px; /* Maximum width for the container */
+  margin: 0; /* No margin, making it fill the body */
+  overflow-y: auto; /* Allow scrolling within the container if content exceeds height */
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(
+    to right,
+    #f1dede,
+    #363636
+  ); /* Vibrant gradient for header */
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #fff;
+  font-family: "Lobster", cursive;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* Result card styles */
+.result-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.result-card:hover {
+  transform: translateY(-5px); /* Hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.result-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  background-color: #2980b9;
+  border-radius: 5px;
+}
+
+.result-card h2 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #f8f7f7, #999898);
+  padding: 8px;
+  border-radius: 6px;
+  color: rgb(5, 4, 4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h3 {
+  font-size: 1.3rem;
+  color: #2980b9;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Insights grid */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Individual insight box styles */
+.insight-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.insight-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9fb;
+}
+
+.insight-box strong {
+  font-size: 1.1rem;
+  color: #2980b9;
+}
+
+.insight-box p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Error message */
+.error {
+  color: red;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Back button */
+.back-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Insights box styles for URL */
+.insight-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.linkedin-url {
+  color: #2980b9;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.linkedin-url:hover {
+  color: #1a73e8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.linkedin-url:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 4px;
+}

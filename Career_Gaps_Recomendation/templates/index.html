@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill Checker</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #dff7f7,
+          #e4e7e9
+        ); /* Lighter blue-green gradient */
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .container:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #00796b; /* Teal */
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      select,
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      select:focus,
+      input[type="text"]:focus {
+        border-color: #00796b; /* Teal color for focus */
+      }
+
+      button {
+        background-color: #00796b; /* Teal */
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #004d40; /* Darker teal for hover */
+      }
+
+      .back-link {
+        margin-top: 20px;
+        display: inline-block;
+        text-decoration: none;
+        color: #00796b;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #004d40;
+      }
+
+      .select2-container .select2-selection--multiple {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        padding: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Career Gaps Finder</h1>
+      <form method="POST">
+        <label for="skills">Select Your Skills:</label>
+        <select
+          name="skills"
+          id="skills"
+          multiple="multiple"
+          style="width: 100%"
+        >
+          {% for skill in all_skills %}
+          <option value="{{ skill }}">{{ skill }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="skill-input">Enter Your Skills (Comma-Separated):</label>
+        <input
+          type="text"
+          id="skill-input"
+          name="skill_input"
+          placeholder="e.g., Programming, Problem Solving, Debugging"
+        />
+
+        <label for="job_role">Select a Job Role:</label>
+        <select name="job_role" id="job_role">
+          {% for role in job_roles %}
+          <option value="{{ role }}">{{ role }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit">Check Skills</button>
+      </form>
+      <p></p>
+      <button onclick="window.location.href='http://127.0.0.1:9999'">
+        Back to Main Page
+      </button>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#skills").select2({
+          placeholder: "Select your skills",
+          width: "100%",
+        });
+
+        $("#skill-input").on("blur", function () {
+          var skillsArray = $(this)
+            .val()
+            .split(",")
+            .map(function (skill) {
+              return skill.trim();
+            });
+
+          $("#skills").val(skillsArray).trigger("change");
+        });
+      });
+    </script>
+  </body>
+</html>

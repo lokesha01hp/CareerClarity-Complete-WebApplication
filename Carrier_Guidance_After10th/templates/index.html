@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Guidance</title>
+    <style>
+      /* Global styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        background: #e2eef3;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Header styles */
+      header {
+        background-color: #8a51c7; /* Purple */
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      /* Main container */
+      .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        max-width: 800px;
+        width: 100%;
+        margin: 2rem auto;
+      }
+      h2 {
+        color: #6a11cb;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Form styling */
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      select,
+      button,
+      input {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      select:focus,
+      button:focus,
+      input:focus {
+        outline: none;
+        border-color: #6a11cb;
+      }
+
+      /* Button styles */
+      button {
+        background-color: #6a11cb;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s ease;
+      }
+      button:hover {
+        background-color: #2575fc; /* Blue on hover */
+        transform: translateY(-2px); /* Lift effect */
+      }
+      button:active {
+        transform: translateY(2px); /* Press effect */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Career Guidance System</h1>
+    </header>
+    <div class="container">
+      <form method="POST">
+        <!-- Existing unique values columns -->
+        {% for col, values in unique_values.items() %}
+        <label for="{{ col }}">{{ col.replace("_", " ") }}:</label>
+        <select name="{{ col }}" id="{{ col }}" required>
+          <option value="">Select...</option>
+          {% for value in values %}
+          <option value="{{ value }}">{{ value }}</option>
+          {% endfor %}
+        </select>
+        {% endfor %}
+
+        <!-- New PUC or Diploma field -->
+        <label for="puc_or_diploma">PUC or Diploma:</label>
+        <select name="puc_or_diploma" id="puc_or_diploma" required>
+          <option value="">Select...</option>
+          <option value="PUC">PUC</option>
+          <option value="Diploma">Diploma</option>
+        </select>
+
+        <button type="submit">Get Recommendations</button>
+      </form>
+    </div>
+    <button onclick="window.location.href='http://127.0.0.1:9999'">
+      Back to Main Page
+    </button>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Guidance Help</title>
+    <style>
+      body {
+        margin: 0;
+        background: url('{{ url_for("static", filename="images/iwant.jpg") }}')
+          no-repeat center center/cover;
+        height: 100%;
+      }
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(to right, #edfcf4, #cfddf7);
+        color: #fff;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        background-color: rgba(71, 67, 67, 0.9);
+        padding: 20px 30px;
+        text-align: center;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      header nav a {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 15px 25px;
+        background-color: #333;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      header nav a:hover {
+        background-color: #444;
+        transform: scale(1.1);
+      }
+
+      header nav a.active {
+        background-color: #6a11cb;
+      }
+
+      .help-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        margin: 50px auto;
+        width: 60%;
+        max-width: 600px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        color: #333;
+      }
+
+      h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #2575fc;
+      }
+
+      .faq {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .faq h3 {
+        font-size: 22px;
+        color: #333;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        display: none;
+        padding: 15px;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #555;
+      }
+
+      .faq-toggle {
+        align-self: flex-end;
+        padding: 10px 15px;
+        background-color: #2575fc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      .faq-toggle:hover {
+        background-color: #6a11cb;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        width: 100%;
+        margin-top: auto;
+      }
+
+      .faq-answer.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('help') }}" class="active">Help</a>
+      </nav>
+    </header>
+
+    <div class="help-container">
+      <h2>Career Guidance Help</h2>
+
+      <section class="faq">
+        <h3>What is Career Path Recommendation?</h3>
+        <button class="faq-toggle">▼</button>
+        <div class="faq-answer">
+          <p>
+            The Career Path Recommendation feature helps students by suggesting
+            possible career paths after completing 10th grade based on their
+            personal interests, academic strengths, and preferences.
+          </p>
+        </div>
+      </section>
+
+      <section class="faq">
+        <h3>How does the Career Gap Analysis work?</h3>
+        <button class="faq-toggle">▼</button>
+        <div class="faq-answer">
+          <p>
+            The Career Gap Analysis identifies the skill gap between a user's
+            current abilities and those required for their desired career. It
+            provides a roadmap for acquiring the necessary skills.
+          </p>
+        </div>
+      </section>
+
+      <section class="faq">
+        <h3>What is Personality-Based Career Prediction?</h3>
+        <button class="faq-toggle">▼</button>
+        <div class="faq-answer">
+          <p>
+            The Personality-Based Career Prediction feature analyzes your
+            personality traits to recommend suitable career paths that align
+            with your natural strengths and preferences.
+          </p>
+        </div>
+      </section>
+
+      <section class="faq">
+        <h3>Why is Career Guidance Important?</h3>
+        <button class="faq-toggle">▼</button>
+        <div class="faq-answer">
+          <p>
+            Career guidance is crucial for helping individuals make informed
+            decisions about their future, ensuring they choose a path that
+            aligns with their skills, interests, and long-term goals.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Career Guidance. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const toggles = document.querySelectorAll(".faq-toggle");
+
+      toggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const answer = toggle.parentElement.querySelector(".faq-answer");
+          const allAnswers = document.querySelectorAll(".faq-answer");
+
+          // Close all answers first
+          allAnswers.forEach((ans) => {
+            if (ans !== answer) {
+              ans.classList.remove("show");
+            }
+          });
+
+          // Toggle the clicked answer
+          answer.classList.toggle("show");
+
+          // Change the arrow based on visibility
+          toggle.textContent = answer.classList.contains("show") ? "▲" : "▼";
+        });
+      });
+    </script>
+  </body>
+</html>

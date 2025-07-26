@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Recommendation Report</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin: 2rem 0;
+        color: #0078d4;
+      }
+      h3 {
+        color: #0078d4;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+      }
+      .user-info,
+      .recommendations {
+        margin-bottom: 2rem;
+      }
+      .user-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin: 0.5rem 0;
+      }
+      .recommendation-item {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .recommendation-item strong {
+        color: #0078d4;
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 1rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Career Recommendation Report</h1>
+
+    <div class="container">
+      <div class="user-info">
+        <p><strong>User Name:</strong> {{ user_name }}</p>
+        <p>
+          <strong>Education Level (PUC/Diploma):</strong> {{
+          recommendations['PUC_or_Diploma'] }}
+        </p>
+      </div>
+
+      <div class="recommendations">
+        <h3>Your Recommendations:</h3>
+        {% for key, value in recommendations.items() %} {% if key not in
+        ['PUC_or_Diploma', 'Distance_To_College', 'google_maps_link'] %}
+        <div class="recommendation-item">
+          <p>
+            <strong>{{ key.replace('_', ' ').title() }}:</strong> {{ value }}
+          </p>
+        </div>
+        {% endif %} {% endfor %}
+
+        <!-- Display Google Maps link if available -->
+        {% if recommendations['google_maps_link'] %}
+        <div class="recommendation-item">
+          <p>
+            <strong>Find Colleges Nearby:</strong>
+            <a href="{{ recommendations['google_maps_link'] }}" target="_blank">
+              View on Google Maps
+            </a>
+          </p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        Thank you for using our Career Recommendation tool. Best of luck in your
+        career journey!
+      </p>
+    </div>
+  </body>
+</html>

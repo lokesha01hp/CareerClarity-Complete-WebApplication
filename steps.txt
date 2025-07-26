@@ -1,0 +1,26 @@
+To run the app:
+
+   
+    Open 5 Seperate Terminals to run 5 seperate app.py.
+        Terminal 1:
+            cd Career_Gaps_Recomendation
+            python app.py
+        
+        Terminal 2:
+            cd Carrier_Guidance_After10th
+            python app.py
+        
+        Terminal 3:
+            cd personality_based_predication
+            python app.py
+
+        Terminal 4:
+            cd Trending_insights
+            python app.py
+        
+        Terminal 5:
+            cd CareerGuidance-main
+            python app.py
+
+After all the apps start
+visit http://127.0.0.1:9999/

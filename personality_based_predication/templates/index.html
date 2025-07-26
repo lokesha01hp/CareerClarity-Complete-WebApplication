@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Job Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personality-Based Job Predictor</h1>
+        <div class="flashcards">
+            <form action="/predict" method="post">
+                <div class="card">
+                    <label for="trait1">1. How do you prefer social interactions?</label>
+                    <input 
+                        type="text" 
+                        id="trait1" 
+                        name="trait1" 
+                        placeholder="Type here..." 
+                        list="trait1-options" 
+                        required>
+                    <datalist id="trait1-options">
+                        <option value="I enjoy meeting new people.">
+                        <option value="I prefer quiet, solitary activities.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait2">2. How do you process information?</label>
+                    <input 
+                        type="text" 
+                        id="trait2" 
+                        name="trait2" 
+                        placeholder="Type here..." 
+                        list="trait2-options" 
+                        required>
+                    <datalist id="trait2-options">
+                        <option value="I like to focus on facts and details.">
+                        <option value="I enjoy thinking about abstract ideas.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait3">3. How do you make decisions?</label>
+                    <input 
+                        type="text" 
+                        id="trait3" 
+                        name="trait3" 
+                        placeholder="Type here..." 
+                        list="trait3-options" 
+                        required>
+                    <datalist id="trait3-options">
+                        <option value="I make decisions based on logic and facts.">
+                        <option value="I consider emotions and values when deciding.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait4">4. How do you organize your life?</label>
+                    <input 
+                        type="text" 
+                        id="trait4" 
+                        name="trait4" 
+                        placeholder="Type here..." 
+                        list="trait4-options" 
+                        required>
+                    <datalist id="trait4-options">
+                        <option value="I prefer to plan and organize tasks.">
+                        <option value="I like to keep things flexible and open-ended.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait5">5. How do you approach creativity and ideas?</label>
+                    <input 
+                        type="text" 
+                        id="trait5" 
+                        name="trait5" 
+                        placeholder="Type here..." 
+                        list="trait5-options" 
+                        required>
+                    <datalist id="trait5-options">
+                        <option value="I often think about possibilities and future plans.">
+                        <option value="I focus on the present moment and practical solutions.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait6">6. How do you handle stress?</label>
+                    <input 
+                        type="text" 
+                        id="trait6" 
+                        name="trait6" 
+                        placeholder="Type here..." 
+                        list="trait6-options" 
+                        required>
+                    <datalist id="trait6-options">
+                        <option value="I stay calm and focus on solutions.">
+                        <option value="I can become anxious and overwhelmed.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait7">7. Do you prefer routine or change?</label>
+                    <input 
+                        type="text" 
+                        id="trait7" 
+                        name="trait7" 
+                        placeholder="Type here..." 
+                        list="trait7-options" 
+                        required>
+                    <datalist id="trait7-options">
+                        <option value="I prefer a structured routine.">
+                        <option value="I enjoy a dynamic and changing environment.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait8">8. How do you deal with conflict?</label>
+                    <input 
+                        type="text" 
+                        id="trait8" 
+                        name="trait8" 
+                        placeholder="Type here..." 
+                        list="trait8-options" 
+                        required>
+                    <datalist id="trait8-options">
+                        <option value="I address conflict directly and seek resolution.">
+                        <option value="I try to avoid conflict and keep the peace.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait9">9. How do you prioritize tasks?</label>
+                    <input 
+                        type="text" 
+                        id="trait9" 
+                        name="trait9" 
+                        placeholder="Type here..." 
+                        list="trait9-options" 
+                        required>
+                    <datalist id="trait9-options">
+                        <option value="I prioritize based on deadlines and importance.">
+                        <option value="I take on tasks as they come and adapt.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait10">10. How do you handle change?</label>
+                    <input 
+                        type="text" 
+                        id="trait10" 
+                        name="trait10" 
+                        placeholder="Type here..." 
+                        list="trait10-options" 
+                        required>
+                    <datalist id="trait10-options">
+                        <option value="I embrace change and adapt quickly.">
+                        <option value="I struggle with change and prefer stability.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait11">11. How do you approach problems?</label>
+                    <input 
+                        type="text" 
+                        id="trait11" 
+                        name="trait11" 
+                        placeholder="Type here..." 
+                        list="trait11-options" 
+                        required>
+                    <datalist id="trait11-options">
+                        <option value="I break down problems into smaller parts.">
+                        <option value="I look at the problem from a big picture perspective.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait12">12. How do you respond to feedback?</label>
+                    <input 
+                        type="text" 
+                        id="trait12" 
+                        name="trait12" 
+                        placeholder="Type here..." 
+                        list="trait12-options" 
+                        required>
+                    <datalist id="trait12-options">
+                        <option value="I appreciate constructive feedback.">
+                        <option value="I prefer to work independently and resist feedback.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait13">13. How do you approach learning?</label>
+                    <input 
+                        type="text" 
+                        id="trait13" 
+                        name="trait13" 
+                        placeholder="Type here..." 
+                        list="trait13-options" 
+                        required>
+                    <datalist id="trait13-options">
+                        <option value="I prefer hands-on learning and practice.">
+                        <option value="I enjoy theoretical learning and study.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait14">14. How do you work under pressure?</label>
+                    <input 
+                        type="text" 
+                        id="trait14" 
+                        name="trait14" 
+                        placeholder="Type here..." 
+                        list="trait14-options" 
+                        required>
+                    <datalist id="trait14-options">
+                        <option value="I thrive under pressure and perform well.">
+                        <option value="I get stressed and struggle to meet deadlines.">
+                    </datalist>
+                </div>
+
+                <div class="card">
+                    <label for="trait15">15. How do you manage your time?</label>
+                    <input 
+                        type="text" 
+                        id="trait15" 
+                        name="trait15" 
+                        placeholder="Type here..." 
+                        list="trait15-options" 
+                        required>
+                    <datalist id="trait15-options">
+                        <option value="I follow a strict schedule and plan my time.">
+                        <option value="I manage time flexibly and adapt to changes.">
+                    </datalist>
+                </div>
+
+                <button type="submit">Predict My Job</button>
+            </form>
+        </div>
+        <button onclick="window.location.href='http://localhost:9999'">Back to Main Page</button>
+    </div>
+</body>
+</html>

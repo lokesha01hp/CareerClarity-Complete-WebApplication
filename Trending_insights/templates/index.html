@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Insights</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index_styles.css') }}"
+      />
+   <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        color: #ffffff;
+        background: url('{{ url_for("static", filename="images/beconnectedbackground.jpg") }}')
+          no-repeat center center/cover;
+        height: 100%;
+      }
+
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #00d1b2;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #00d1b2;
+      }
+
+      /* Background Section */
+      .detect-background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 70px; /* Ensure form stays below the fixed header */
+      }
+
+      .detect-content {
+        padding: 30px;
+        border-radius: 15px;
+        width: 300px; /* Reduced width to half */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        backdrop-filter: none; /* Removed background effect */
+        background: none; /* No background box */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centered form content */
+      }
+
+      .detect-content h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #00d1b2;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      .detect-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #ffffff;
+        text-align: left; /* Align label text to the left */
+      }
+
+      .detect-form input {
+        width: 100%; /* Stretch input to match container width */
+        max-width: 250px; /* Limit input size */
+        padding: 10px;
+        margin-bottom: 15px; /* Space between fields */
+        border-radius: 8px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-size: 14px;
+        display: block;
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+      }
+
+      .btn {
+        background-color: #00d1b2;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Career Insights</h1>
+        <p>Enter your details and get personalized career insights!</p>
+      </header>
+      <!-- Form to take user input -->
+      <form method="POST" action="/results" class="input-form">
+        <label for="name">What is your name?</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <form method="POST" action="/results" class="input-form">
+  <label for="role">Interested role to see trending insights:</label><br />
+  <select id="role" name="role" required>
+    <option value="" disabled selected>Select an Interested Course</option>
+    <option value="ERP Software Developer">ERP Software Developer</option>
+          <option value="Test Automation Architect">
+            Test Automation Architect
+          </option>
+          <option value="Application Security Engineer">
+            Application Security Engineer
+          </option>
+          <option value="Decentralized App (DApp) Developer">
+            Decentralized App (DApp) Developer
+          </option>
+          <option value="IoT Cloud Integration Specialist">
+            IoT Cloud Integration Specialist
+          </option>
+          <option value="Ontology Specialist">Ontology Specialist</option>
+          <option value="Data Analyst">Data Analyst</option>
+          <option value="Red Team Specialist">Red Team Specialist</option>
+          <option value="Disaster Recovery Architect">
+            Disaster Recovery Architect
+          </option>
+          <option value="DevOps Engineer">DevOps Engineer</option>
+          <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+          <option value="VPN Specialist">VPN Specialist</option>
+          <option value="Python Developer">Python Developer</option>
+          <option value="IT Automation Developer">
+            IT Automation Developer
+          </option>
+          <option value="Multi-Cloud Architect">Multi-Cloud Architect</option>
+          <option value="AI Data Engineer">AI Data Engineer</option>
+          <option value="Site Reliability Engineer (SRE)">
+            Site Reliability Engineer (SRE)
+          </option>
+          <option value="Network Optimization Specialist">
+            Network Optimization Specialist
+          </option>
+          <option value="AI Robotics Engineer">AI Robotics Engineer</option>
+          <option value="CRM Software Developer">CRM Software Developer</option>
+          <option value="Angular Developer">Angular Developer</option>
+          <option value="Semantic Search Developer">
+            Semantic Search Developer
+          </option>
+          <option value="Cloud Cost Optimization Specialist">
+            Cloud Cost Optimization Specialist
+          </option>
+          <option value="Firewall Specialist">Firewall Specialist</option>
+          <option value="Data Scientist">Data Scientist</option>
+          <option value="AI/ML Systems Integrator">
+            AI/ML Systems Integrator
+          </option>
+          <option value="Automation Test Engineer">
+            Automation Test Engineer
+          </option>
+          <option value="Technical Lead">Technical Lead</option>
+          <option value="Vue.js Developer">Vue.js Developer</option>
+          <option value="Test Data Management Specialist">
+            Test Data Management Specialist
+          </option>
+          <option value="Cloud Solutions Architect">
+            Cloud Solutions Architect
+          </option>
+          <option value="Secure Network Architect">
+            Secure Network Architect
+          </option>
+          <option value="Data Visualization Engineer">
+            Data Visualization Engineer
+          </option>
+          <option value="Serverless Architecture Engineer">
+            Serverless Architecture Engineer
+          </option>
+          <option value="Identity and Access Management (IAM) Specialist">
+            Identity and Access Management (IAM) Specialist
+          </option>
+          <option value="Cloud Backup Engineer">Cloud Backup Engineer</option>
+          <option value="AI Business Consultant">AI Business Consultant</option>
+          <option value="Data Mining Specialist">Data Mining Specialist</option>
+          <option value="Security Architect">Security Architect</option>
+          <option value="Platform Engineer">Platform Engineer</option>
+          <option value="SaaS Developer">SaaS Developer</option>
+          <option value="Svelte Developer">Svelte Developer</option>
+          <option value="Traffic Flow Engineer">Traffic Flow Engineer</option>
+          <option value="Software Developer/Engineer">
+            Software Developer/Engineer
+          </option>
+          <option value="Computer Vision Researcher">
+            Computer Vision Researcher
+          </option>
+          <option value="Biometrics Security Specialist">
+            Biometrics Security Specialist
+          </option>
+          <option value="Backend Developer">Backend Developer</option>
+          <option value="Cloud Infrastructure Specialist">
+            Cloud Infrastructure Specialist
+          </option>
+          <option value="Recommendation System Engineer">
+            Recommendation System Engineer
+          </option>
+          <option value="Security Auditor">Security Auditor</option>
+          <option value="NLP Engineer">NLP Engineer</option>
+          <option value="Phishing Defense Specialist">
+            Phishing Defense Specialist
+          </option>
+          <option value="Test Automation Lead">Test Automation Lead</option>
+          <option value="Cybersecurity Specialist (Network Focused)">
+            Cybersecurity Specialist (Network Focused)
+          </option>
+          <option value="Go Developer">Go Developer</option>
+          <option value="AWS Solutions Architect">
+            AWS Solutions Architect
+          </option>
+          <option value="BGP Network Specialist">BGP Network Specialist</option>
+          <option value="Post-Quantum Cryptography Specialist">
+            Post-Quantum Cryptography Specialist
+          </option>
+          <option value="AI Solution Architect">AI Solution Architect</option>
+          <option value="5G Network Engineer">5G Network Engineer</option>
+          <option value="Rust Developer">Rust Developer</option>
+          <option value="Security Penetration Tester">
+            Security Penetration Tester
+          </option>
+          <option value="Endpoint Security Specialist">
+            Endpoint Security Specialist
+          </option>
+          <option
+            value="Security Information and Event Management (SIEM) Engineer"
+          >
+            Security Information and Event Management (SIEM) Engineer
+          </option>
+          <option value="Integration Specialist">Integration Specialist</option>
+          <option value="API Gateway Developer">API Gateway Developer</option>
+          <option value="Reinforcement Learning Engineer">
+            Reinforcement Learning Engineer
+          </option>
+          <option value="AI Researcher">AI Researcher</option>
+          <option value="Ransomware Defense Specialist">
+            Ransomware Defense Specialist
+          </option>
+          <option value="Cloud Access Security Broker (CASB) Engineer">
+            Cloud Access Security Broker (CASB) Engineer
+          </option>
+          <option value="High-Performance Computing Engineer">
+            High-Performance Computing Engineer
+          </option>
+          <option value="Business Intelligence Developer">
+            Business Intelligence Developer
+          </option>
+          <option value="Plugin Developer">Plugin Developer</option>
+          <option value="AI Chatbot Developer">AI Chatbot Developer</option>
+          <option value="Cognitive AI Specialist">
+            Cognitive AI Specialist
+          </option>
+          <option value="Load Testing Specialist">
+            Load Testing Specialist
+          </option>
+          <option value="Security Operations Center (SOC) Analyst">
+            Security Operations Center (SOC) Analyst
+          </option>
+          <option value="Data Streaming Engineer">
+            Data Streaming Engineer
+          </option>
+          <option value="ASP.NET Developer">ASP.NET Developer</option>
+          <option value="IoT Security Engineer">IoT Security Engineer</option>
+          <option value="Vulnerability Management Specialist">
+            Vulnerability Management Specialist
+          </option>
+          <option value="Security Tester">Security Tester</option>
+          <option value="Spring Boot Developer">Spring Boot Developer</option>
+          <option value="Automated Data Science Specialist">
+            Automated Data Science Specialist
+          </option>
+          <option value="Incident Response Analyst">
+            Incident Response Analyst
+          </option>
+          <option value="Node.js Developer">Node.js Developer</option>
+          <option value="Federated Learning Engineer">
+            Federated Learning Engineer
+          </option>
+          <option value="Digital Forensics Specialist">
+            Digital Forensics Specialist
+          </option>
+          <option value="Server Virtualization Specialist">
+            Server Virtualization Specialist
+          </option>
+          <option value="Flutter Developer">Flutter Developer</option>
+          <option value="Security Automation Specialist">
+            Security Automation Specialist
+          </option>
+          <option value="Testing Framework Developer">
+            Testing Framework Developer
+          </option>
+          <option value="Cryptanalyst">Cryptanalyst</option>
+          <option value="Blockchain Developer">Blockchain Developer</option>
+          <option value="Systems Administrator">Systems Administrator</option>
+          <option value="Test Automation Developer">
+            Test Automation Developer
+          </option>
+          <option value="Malware Analyst">Malware Analyst</option>
+          <option value="Storage Engineer">Storage Engineer</option>
+          <option value="AI in Cybersecurity Specialist">
+            AI in Cybersecurity Specialist
+          </option>
+          <option value="Xamarin Developer">Xamarin Developer</option>
+          <option value="Digital Twin Specialist">
+            Digital Twin Specialist
+          </option>
+          <option value="Cloud Automation Specialist">
+            Cloud Automation Specialist
+          </option>
+          <option value="Network Administrator">Network Administrator</option>
+          <option value="Cloud Systems Engineer">Cloud Systems Engineer</option>
+          <option value="Azure Cloud Engineer">Azure Cloud Engineer</option>
+          <option value="Redux Developer">Redux Developer</option>
+          <option value="VoIP Engineer">VoIP Engineer</option>
+          <option value="React Developer">React Developer</option>
+          <option value="Firmware Engineer">Firmware Engineer</option>
+          <option value="Django Developer">Django Developer</option>
+          <option value="Explainable AI Researcher">
+            Explainable AI Researcher
+          </option>
+          <option value="Google Cloud Platform Specialist">
+            Google Cloud Platform Specialist
+          </option>
+          <option value="Cryptographer">Cryptographer</option>
+          <option value="Penetration Tester (Ethical Hacker)">
+            Penetration Tester (Ethical Hacker)
+          </option>
+          <option value="Virtualization Engineer">
+            Virtualization Engineer
+          </option>
+          <option value="Software Architect">Software Architect</option>
+          <option value="Game Tester">Game Tester</option>
+          <option value="Frontend Developer">Frontend Developer</option>
+          <option value="Simulation Engineer">Simulation Engineer</option>
+          <option value="OT/ICS Security Specialist">
+            OT/ICS Security Specialist
+          </option>
+          <option value="Zero Trust Architect">Zero Trust Architect</option>
+          <option value="Cloud Network Architect">
+            Cloud Network Architect
+          </option>
+          <option value="Serverless Engineer">Serverless Engineer</option>
+          <option value="DNS Security Analyst">DNS Security Analyst</option>
+          <option value="TensorFlow Developer">TensorFlow Developer</option>
+          <option value="Backend Microservices Engineer">
+            Backend Microservices Engineer
+          </option>
+          <option value="Blockchain Application Developer">
+            Blockchain Application Developer
+          </option>
+          <option value="Insider Threat Analyst">Insider Threat Analyst</option>
+          <option value="Spark Developer">Spark Developer</option>
+          <option value="Security Software Engineer">
+            Security Software Engineer
+          </option>
+          <option value="Knowledge Distillation Expert">
+            Knowledge Distillation Expert
+          </option>
+          <option value="Performance Test Lead">Performance Test Lead</option>
+          <option value="GUI Developer">GUI Developer</option>
+          <option value="Hadoop Developer">Hadoop Developer</option>
+          <option value="DevSecOps Engineer">DevSecOps Engineer</option>
+          <option value="Mobile Backend Developer">
+            Mobile Backend Developer
+          </option>
+          <option value="Computer Vision Engineer">
+            Computer Vision Engineer
+          </option>
+          <option value="Web Application Firewall (WAF) Specialist">
+            Web Application Firewall (WAF) Specialist
+          </option>
+          <option value="Cloud Security Specialist">
+            Cloud Security Specialist
+          </option>
+          <option value="Deep Learning Engineer">Deep Learning Engineer</option>
+          <option value="Cybersecurity Researcher">
+            Cybersecurity Researcher
+          </option>
+          <option value="Knowledge Graph Engineer">
+            Knowledge Graph Engineer
+          </option>
+          <option value="Regression Testing Specialist">
+            Regression Testing Specialist
+          </option>
+          <option value="Cloud Performance Engineer">
+            Cloud Performance Engineer
+          </option>
+          <option value="Edge Computing Engineer">
+            Edge Computing Engineer
+          </option>
+          <option value="Containerization Specialist">
+            Containerization Specialist
+          </option>
+          <option value="Hibernate Developer">Hibernate Developer</option>
+          <option value="Terraform Engineer">Terraform Engineer</option>
+          <option value="Flask Developer">Flask Developer</option>
+          <option value="Cloud Software Developer">
+            Cloud Software Developer
+          </option>
+          <option value="AI Model Trainer">AI Model Trainer</option>
+          <option value="Security Test Engineer">Security Test Engineer</option>
+          <option value="Digital Twin Developer">Digital Twin Developer</option>
+          <option value="Automated Deployment Engineer">
+            Automated Deployment Engineer
+          </option>
+          <option value="Middleware Application Developer">
+            Middleware Application Developer
+          </option>
+          <option value="Machine Learning Engineer">
+            Machine Learning Engineer
+          </option>
+          <option value="Software-Defined Networking (SDN) Engineer">
+            Software-Defined Networking (SDN) Engineer
+          </option>
+          <option value="Graph Analytics Engineer">
+            Graph Analytics Engineer
+          </option>
+          <option value="Load Balancing Specialist">
+            Load Balancing Specialist
+          </option>
+          <option value="LAN/WAN Specialist">LAN/WAN Specialist</option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="Business Intelligence Analyst">
+            Business Intelligence Analyst
+          </option>
+          <option value="Mobile Application Tester">
+            Mobile Application Tester
+          </option>
+          <option value="Data Loss Prevention Specialist">
+            Data Loss Prevention Specialist
+          </option>
+          <option value="Blockchain Architect">Blockchain Architect</option>
+          <option value="Usability Testing Specialist">
+            Usability Testing Specialist
+          </option>
+          <option value="Mobile Security Specialist">
+            Mobile Security Specialist
+          </option>
+          <option value="UI/UX Developer">UI/UX Developer</option>
+          <option value="Secure Software Developer">
+            Secure Software Developer
+          </option>
+          <option value="Network Penetration Tester">
+            Network Penetration Tester
+          </option>
+          <option value="Cloud Solutions Consultant">
+            Cloud Solutions Consultant
+          </option>
+          <option value="QA Analyst">QA Analyst</option>
+          <option value="Middleware Engineer">Middleware Engineer</option>
+          <option value="Security Consultant">Security Consultant</option>
+          <option value="Cloud Data Architect">Cloud Data Architect</option>
+          <option value="Network Systems Engineer">
+            Network Systems Engineer
+          </option>
+          <option value="Mobile App Developer">Mobile App Developer</option>
+          <option value="Distributed Systems Developer">
+            Distributed Systems Developer
+          </option>
+          <option value="Threat Modeling Specialist">
+            Threat Modeling Specialist
+          </option>
+          <option value="Voice AI Developer">Voice AI Developer</option>
+          <option value="Autonomous Systems Engineer">
+            Autonomous Systems Engineer
+          </option>
+          <option value="Swift Developer">Swift Developer</option>
+          <option value="Data Engineer">Data Engineer</option>
+          <option value="Embedded Software Engineer">
+            Embedded Software Engineer
+          </option>
+          <option value="Big Data Engineer">Big Data Engineer</option>
+          <option value="Hybrid Cloud Solutions Engineer">
+            Hybrid Cloud Solutions Engineer
+          </option>
+          <option value="Network Monitoring Specialist">
+            Network Monitoring Specialist
+          </option>
+          <option value="Progressive Web App Developer">
+            Progressive Web App Developer
+          </option>
+          <option value="Risk Assessment Analyst">
+            Risk Assessment Analyst
+          </option>
+          <option value="Cyber Threat Hunter">Cyber Threat Hunter</option>
+          <option value="Network Automation Engineer">
+            Network Automation Engineer
+          </option>
+          <option value="Vulnerability Penetration Specialist">
+            Vulnerability Penetration Specialist
+          </option>
+          <option value="Kotlin Developer">Kotlin Developer</option>
+          <option value="Bayesian Data Scientist">
+            Bayesian Data Scientist
+          </option>
+          <option value="Cloud Network Engineer">Cloud Network Engineer</option>
+          <option value="Edge AI Engineer">Edge AI Engineer</option>
+          <option value="C++ Developer">C++ Developer</option>
+          <option value="Anti-Malware Tool Developer">
+            Anti-Malware Tool Developer
+          </option>
+          <option value="Network Protocol Specialist">
+            Network Protocol Specialist
+          </option>
+          <option value="Cloud Engineer">Cloud Engineer</option>
+          <option value="Acceptance Test Engineer">
+            Acceptance Test Engineer
+          </option>
+          <option value="AI Ethics Researcher">AI Ethics Researcher</option>
+          <option value="Docker Engineer">Docker Engineer</option>
+          <option value="Network Security Engineer">
+            Network Security Engineer
+          </option>
+          <option value="Purple Team Specialist">Purple Team Specialist</option>
+          <option value="Game Developer">Game Developer</option>
+          <option value="API Developer">API Developer</option>
+          <option value="Cyber Risk Manager">Cyber Risk Manager</option>
+          <option value="Privacy Engineer">Privacy Engineer</option>
+          <option
+            value="Security Orchestration Automation and Response (SOAR) Specialist"
+          >
+            Security Orchestration Automation and Response (SOAR) Specialist
+          </option>
+          <option value="Web Accessibility Specialist">
+            Web Accessibility Specialist
+          </option>
+          <option value="Infrastructure Engineer">
+            Infrastructure Engineer
+          </option>
+          <option value="Telecommunications Network Engineer">
+            Telecommunications Network Engineer
+          </option>
+          <option value="Algorithm Developer">Algorithm Developer</option>
+          <option value="Performance Tester">Performance Tester</option>
+          <option value="AI Ethics Officer">AI Ethics Officer</option>
+          <option value="Software Tester">Software Tester</option>
+          <option value="Infrastructure as Code (IaC) Engineer">
+            Infrastructure as Code (IaC) Engineer
+          </option>
+          <option value="Threat Intelligence Analyst">
+            Threat Intelligence Analyst
+          </option>
+          <option value="Blockchain Security Specialist">
+            Blockchain Security Specialist
+          </option>
+          <option value="PyTorch Developer">PyTorch Developer</option>
+          <option value="Incident Response Manager">
+            Incident Response Manager
+          </option>
+          <option value="Public Key Infrastructure (PKI) Specialist">
+            Public Key Infrastructure (PKI) Specialist
+          </option>
+          <option value="Quantum Computing Specialist">
+            Quantum Computing Specialist
+          </option>
+          <option value="Time-Series Analyst">Time-Series Analyst</option>
+          <option value="App Security Developer">App Security Developer</option>
+          <option value="AI Engineer">AI Engineer</option>
+          <option value="Kubernetes Administrator">
+            Kubernetes Administrator
+          </option>
+          <option value="Cloud Migration Engineer">
+            Cloud Migration Engineer
+          </option>
+          <option value="Cloud Operations Manager">
+            Cloud Operations Manager
+          </option>
+          <option value="Quantum Algorithms Researcher">
+            Quantum Algorithms Researcher
+          </option>
+          <option value="RPA Developer">RPA Developer</option>
+          <option value="Internet of Things (IoT) Engineer">
+            Internet of Things (IoT) Engineer
+          </option>
+          <option value="Cloud AI Engineer">Cloud AI Engineer</option>
+          <option value="Cybersecurity Risk Analyst">
+            Cybersecurity Risk Analyst
+          </option>
+          <option value="Blue Team Specialist">Blue Team Specialist</option>
+          <option value="Cybersecurity Incident Manager">
+            Cybersecurity Incident Manager
+          </option>
+          <option value="Statistical NLP Developer">
+            Statistical NLP Developer
+          </option>
+          <option value="Software Quality Engineer">
+            Software Quality Engineer
+          </option>
+          <option value="Network Infrastructure Engineer">
+            Network Infrastructure Engineer
+          </option>
+          <option value="Wireless Network Engineer">
+            Wireless Network Engineer
+          </option>
+          <option value="Network Analyst">Network Analyst</option>
+          <option value="Data Warehouse Developer">
+            Data Warehouse Developer
+          </option>
+          <option value="API Tester">API Tester</option>
+          <option
+            value="Continuous Integration/Continuous Deployment (CI/CD) Tester"
+          >
+            Continuous Integration/Continuous Deployment (CI/CD) Tester
+          </option>
+          <option value="AR/VR Developer">AR/VR Developer</option>
+          <option value="SOC Manager">SOC Manager</option>
+          <option value="Full Stack Developer">Full Stack Developer</option>
+          <option value="Data Architect">Data Architect</option>
+          <option value="Image Recognition Engineer">
+            Image Recognition Engineer
+          </option>
+          <option value="Security Engineer">Security Engineer</option>
+          <option value="Integration Engineer">Integration Engineer</option>
+          <option value="Neural Network Architect">
+            Neural Network Architect
+          </option>
+          <option value="Java Developer">Java Developer</option>
+          <option value="Serverless Application Developer">
+            Serverless Application Developer
+          </option>
+        </select>
+        <br /><br />
+        <input type="submit" value="Get Insights" />
+      </form>
+    </div>
+      </div>
+        <button onclick="window.location.href='http://localhost:9999'">Back to Main Page</button>
+    </div>
+  </body>
+</html>
