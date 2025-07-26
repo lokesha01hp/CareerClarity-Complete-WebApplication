@@ -1,3 +1,5 @@
+# **Career Guidance Web Application**
+
 The Career Guidance Web Application is an intelligent platform designed to help users make informed decisions about their career paths. The application leverages artificial intelligence and predefined data to provide personalized recommendations, skill gap analysis, personality-based career predictions, and insights into trending skills and job statistics. With an integrated chatbot, the application ensures seamless user interaction and guidance.
 
 1. Career Gaps Recommendation
