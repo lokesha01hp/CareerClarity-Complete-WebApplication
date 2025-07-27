@@ -3,9 +3,10 @@
 - The Career Guidance Web Application is an intelligent platform designed to help users make informed decisions about their career paths. 
 - The application leverages artificial intelligence and predefined data to provide personalized recommendations, skill gap analysis, personality-based career predictions, and insights into trending skills and job statistics.
 - With an integrated chatbot, the application ensures seamless user interaction and guidance.
+---
 
+## **Overview of the Project**
 
-**Overview of the Project**
 1. Career Gaps Recommendation
   Identify the gaps between your existing skills and the skills required for your desired career. The app dynamically highlights missing skills and provides actionable suggestions to bridge these gaps, ensuring you're on the right track to success.
 
@@ -20,8 +21,8 @@
 
 5. Chatbot Assistance
   Interact with an integrated chatbot for quick answers to career-related queries. The chatbot also guides users on how to navigate the app and make the most of its features.
-
-Technologies Used
+---
+## **Technologies Used**
 - **Frontend**: HTML, CSS, JavaScript, and responsive design frameworks.
 - **Backend**: Python (Flask), RESTful APIs for prediction models.
 - **Database**: Skills and user data stored in SQL/NoSQL databases.
