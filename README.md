@@ -22,8 +22,8 @@
   Interact with an integrated chatbot for quick answers to career-related queries. The chatbot also guides users on how to navigate the app and make the most of its features.
 
 Technologies Used
-**Frontend**: HTML, CSS, JavaScript, and responsive design frameworks.
-**Backend**: Python (Flask), RESTful APIs for prediction models.
-**Database**: Skills and user data stored in SQL/NoSQL databases.
-**Machine** Learning: AI models for predictions and recommendations.
-**Chatbot**: Botpress integration for user interaction.
+- **Frontend**: HTML, CSS, JavaScript, and responsive design frameworks.
+- **Backend**: Python (Flask), RESTful APIs for prediction models.
+- **Database**: Skills and user data stored in SQL/NoSQL databases.
+- **Machine** Learning: AI models for predictions and recommendations.
+- **Chatbot**: Botpress integration for user interaction.
