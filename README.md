@@ -1,4 +1,4 @@
-# **Career Guidance Web Application**
+# **CareerClarity-Complete-WebApplication**
 
 - The Career Guidance Web Application is an intelligent platform designed to help users make informed decisions about their career paths. 
 - The application leverages artificial intelligence and predefined data to provide personalized recommendations, skill gap analysis, personality-based career predictions, and insights into trending skills and job statistics.
