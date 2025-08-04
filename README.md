@@ -14,7 +14,7 @@
   Designed for students, this feature recommends suitable career paths and educational courses based on academic performance, interests, and skills. It also provides a curated list of challenges and opportunities tailored for students at this critical decision-making stage.
 
 3. Personality-Based Prediction
-  Discover careers that align with your personality traits. By analyzing responses to personality-related questions, the app predicts professions best suited to your unique character and preferences.
+  Discover careers that align with your personality traits. By analysing responses to personality-related questions, the app predicts professions best suited to your unique character and preferences.
 
 4. Trending Insights
   Stay ahead in the job market by exploring trending careers and skills. This feature provides real-time insights, average salaries, job statistics, and helpful links to LinkedIn job postings, empowering you to make data-driven decisions.
@@ -25,6 +25,6 @@
 ## **Technologies Used**
 - **Frontend**: HTML, CSS, JavaScript, and responsive design frameworks.
 - **Backend**: Python (Flask), RESTful APIs for prediction models.
-- **Database**: Skills and user data stored in SQL/NoSQL databases.
+- **Database**: Skills and user data are stored in SQL/NoSQL databases.
 - **Machine** Learning: AI models for predictions and recommendations.
 - **Chatbot**: Botpress integration for user interaction.
