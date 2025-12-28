@@ -25,13 +25,12 @@
 ## **Technologies Used**
 - **Frontend**: HTML, CSS, JavaScript, and responsive design frameworks.
 - **Backend**: Python (Flask).
-- **Database**: Skills and user data are stored in SQL/NoSQL databases.
 - **Machine** Learning: AI models for predictions and recommendations.
 - **Chatbot**: Botpress integration for user interaction.
 
 ## Credits
 
-This project was developed collaboratively with the following team members:
+This project was developed collaboratively with the following team member:
 
 **Contributors:**
 - **Rahul D V** — [GitHub](https://github.com/rahul5r)
