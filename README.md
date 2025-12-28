@@ -28,3 +28,10 @@
 - **Database**: Skills and user data are stored in SQL/NoSQL databases.
 - **Machine** Learning: AI models for predictions and recommendations.
 - **Chatbot**: Botpress integration for user interaction.
+
+## Credits
+
+This project was developed collaboratively with the following team members:
+
+**Contributors:**
+- **Rahul D V** — [GitHub](https://github.com/rahul5r)
